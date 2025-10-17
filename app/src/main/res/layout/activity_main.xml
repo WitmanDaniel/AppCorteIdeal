@@ -5,98 +5,152 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:background="#f0f0f0"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/ivFotoRostro"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="32dp"
-        android:background="#E0E0E0"
-        android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_foreground"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+    <!-- Tarjeta principal (contenedor redondeado) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:padding="24dp"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="0dp"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="Foto del rostro" />
-
-    <!-- NUEVO: LinearLayout para agrupar los botones -->
-    <LinearLayout
-        android:id="@+id/button_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ivFotoRostro">
-
-        <Button
-            android:id="@+id/btnTomarFoto"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:text="Tomar Foto" />
-
-        <!-- NUEVO BOTÓN PARA LA GALERÍA -->
-        <Button
-            android:id="@+id/btnCargarFoto"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="?attr/materialButtonOutlinedStyle"
-            android:text="Cargar Foto" />
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvLabelFormaRostro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Forma del Rostro:"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button_layout" /> <!-- Actualizado -->
-
-    <!-- ... el resto de tus TextViews no cambian ... -->
-
-    <TextView
-        android:id="@+id/tvFormaRostro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Esperando análisis..."
-        android:textColor="@color/design_default_color_primary"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@id/tvLabelFormaRostro"
-        app:layout_constraintStart_toEndOf="@id/tvLabelFormaRostro"
-        app:layout_constraintTop_toTopOf="@id/tvLabelFormaRostro" />
-
-    <TextView
-        android:id="@+id/tvLabelRecomendacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Cortes Recomendados:"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLabelFormaRostro" />
-
-    <TextView
-        android:id="@+id/tvRecomendacion"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:text="-"
-        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvLabelRecomendacion" />
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="665dp">
+
+            <!-- Imagen del rostro -->
+
+
+            <TextView
+                android:id="@+id/tvLabelFormaRostro3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:fontFamily="sans-serif"
+                android:text="MatchCut"
+                android:textAlignment="center"
+                android:textColor="#194673"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivFotoRostro"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="28dp"
+                android:background="@drawable/bg_image_placeholder"
+                android:contentDescription="Foto del rostro"
+                android:scaleType="centerCrop"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelFormaRostro3" />
+
+            <LinearLayout
+                android:id="@+id/button_layout"
+                android:layout_width="317dp"
+                android:layout_height="51dp"
+                android:layout_marginTop="36dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivFotoRostro">
+
+                <Button
+                    android:id="@+id/btnTomarFoto"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#1c5fa6"
+                    android:elevation="2dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:radius="16dp"
+                    android:text="Tomar"
+                    android:textColor="@android:color/white"
+                    android:translationZ="2dp" />
+
+                <Button
+                    android:id="@+id/btnCargarFoto"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#E0E0E0"
+                    android:elevation="1dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:radius="16dp"
+                    android:text="Cargar"
+                    android:textColor="#212121" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLabelFormaRostro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="36dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Forma del rostro:"
+                android:textColor="#424242"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_layout" />
+
+            <TextView
+                android:id="@+id/tvLabelRecomendacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="Cortes recomendados:"
+                android:textColor="#424242"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelFormaRostro" />
+
+            <TextView
+                android:id="@+id/tvRecomendacion"
+                android:layout_width="281dp"
+                android:layout_height="136dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="4dp"
+                android:text="-"
+                android:textColor="#616161"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelRecomendacion" />
+
+            <TextView
+                android:id="@+id/tvFormaRostro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:fontFamily="sans-serif"
+                android:text="Esperando análisis..."
+                android:textColor="#4A90E2"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.581"
+                app:layout_constraintStart_toEndOf="@+id/tvLabelFormaRostro"
+                app:layout_constraintTop_toBottomOf="@+id/button_layout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
